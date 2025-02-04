@@ -63,3 +63,8 @@ for (ops in operators) {
     button.textContent = operators[ops];
     container.appendChild(button);
 }
+
+const clear = document.createElement("button");
+clear.classList.add("btn");
+clear.textContent = "clear";
+container.appendChild(clear);
