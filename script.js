@@ -1,6 +1,6 @@
 function add(num1, num2) {
-    console.log("in add");
-    console.log(num1 + num2);
+    //console.log("in add");
+    //console.log(num1 + num2);
     return num1 + num2;
 }
 
@@ -37,4 +37,12 @@ function operate(num1, operator, num2) {
         default:
             console.log("unknown command");
     }
+}
+
+const container = document.querySelector("#container");
+for (let i = 0; i <= 9; i++) {
+    const button = document.createElement("button");
+    button.classList.add("btn");
+    button.textContent = i;
+    container.appendChild(button);
 }
