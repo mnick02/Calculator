@@ -39,10 +39,19 @@ function operate(num1, operator, num2) {
     }
 }
 
+
 const container = document.querySelector("#container");
 for (let i = 0; i <= 9; i++) {
     const button = document.createElement("button");
     button.classList.add("btn");
     button.textContent = i;
+    container.appendChild(button);
+}
+const operators = ["+", "-", "*", "/", "="];
+for (ops in operators) {
+    const button = document.createElement("button");
+    button.classList.add("btn");
+    console.log(operators[ops]);
+    button.textContent = operators[ops];
     container.appendChild(button);
 }
