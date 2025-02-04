@@ -55,7 +55,7 @@ for (let i = 0; i <= 9; i++) {
     container.appendChild(button);
     button.addEventListener("click", (event) => {
         console.log(button.textContent);
-        display.textContent = button.textContent;
+        display.textContent += button.textContent;
     });
 }
 
@@ -68,7 +68,7 @@ for (ops in operators) {
     container.appendChild(button);
     button.addEventListener("click", (event) => {
         //console.log(this);
-        display.textContent = button.textContent;
+        display.textContent += button.textContent;
     });
 }
 
