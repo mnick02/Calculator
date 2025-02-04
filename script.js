@@ -53,6 +53,10 @@ for (let i = 0; i <= 9; i++) {
     button.classList.add("btn");
     button.textContent = i;
     container.appendChild(button);
+    button.addEventListener("click", (event) => {
+        console.log(button.textContent);
+        display.textContent = button.textContent;
+    });
 }
 
 const operators = ["+", "-", "*", "/", "="];
@@ -62,9 +66,14 @@ for (ops in operators) {
     //console.log(operators[ops]);
     button.textContent = operators[ops];
     container.appendChild(button);
+    button.addEventListener("click", (event) => {
+        //console.log(this);
+        display.textContent = button.textContent;
+    });
 }
 
 const clear = document.createElement("button");
 clear.classList.add("btn");
 clear.textContent = "clear";
 container.appendChild(clear);
+
