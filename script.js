@@ -58,18 +58,35 @@ for (let i = 0; i <= 9; i++) {
     button.addEventListener("click", (event) => {
         console.log(button.textContent);
         display.textContent += button.textContent;
-        //if switch = 1, set var to display.textContent
-        if (tracker === 1) {
+        //numA += display.textContent;
+        
+        // if (numA === "") {
+        //     display.textContent = "";
+        //     display.textContent += button.textContent;
+        // }
+        
+        if (tracker === 0) {
             //display.textContent += button.textContent;
-            numA = button.textContent;
-            tracker = 2;
-            console.log("In loop 1");
+            numA = display.textContent;
+            console.log("in loop 1");
+            tracker = 1;
         }
-        else if (tracker === 3) {
-            numB = button.textContent;
-            tracker = 0;
+        
+        //tracker = 2;
+        //if switch = 1, set var to display.textContent
+        // if (tracker === 1) {
+        //     display.textContent += button.textContent;
+        //     numA = button.textContent;
+        //     tracker = 2;
+        //     console.log("In loop 1");
+        // }
+        if (tracker === 2) {
+            display.textContent = "";
+            display.textContent += button.textContent;
+            numB = display.textContent;
+            tracker = 3;
             console.log("In loop 2");
-            display.textContent = operate(numA, String(operator), numB);
+            //display.textContent = operate(numA, String(operator), numB);
         }
     });
 }
@@ -87,16 +104,24 @@ for (ops in operators) {
         //var += button.textContent?
         //Change to = instead of +=?
         //switch in here (i.e. if btn pressed swtich = 1)
-        if (tracker === 0) {
-            tracker = 1;
+        if (tracker === 1) {
+            tracker = 2;
             console.log("in loop 3");
         }
-        else if (tracker === 2) {
-            tracker = 3;
+        else if (tracker === 3) {
+            tracker = 0;
             console.log("in loop 4");
+            console.log(numA);
+            console.log(operator);
+            console.log(numB);
+            display.textContent = operate(numA, String(operator), numB);
         }
         operator = button.textContent;
         //equal op????
+        // if (button.textContent === "=") {
+        //     display.textContent = operate(numA, String(operator), numB);
+        // }
+
     });
 }
 
