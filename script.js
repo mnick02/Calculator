@@ -50,11 +50,17 @@ container.appendChild(display);
 
 //declare swictch here
 //let tracker = 0;
+
+
 for (let i = 0; i <= 9; i++) {
+    const row = document.createElement("div");
+    row.classList.add("row");
+    container.appendChild(row);
     const button = document.createElement("button");
     button.classList.add("btn");
     button.textContent = i;
-    container.appendChild(button);
+    //container.appendChild(button);
+    row.appendChild(button);
     button.addEventListener("click", (event) => {
         if (displayResult) {
             display.textContent = "";
@@ -76,13 +82,20 @@ for (let i = 0; i <= 9; i++) {
     });
 }
 
+
 const operators = ["+", "-", "*", "/", "="];
+
+
 for (ops in operators) {
+    const row = document.createElement("div");
+    row.classList.add("row");
+    container.appendChild(row);
     const button = document.createElement("button");
     button.classList.add("btn");
     //console.log(operators[ops]);
     button.textContent = operators[ops];
-    container.appendChild(button);
+    //container.appendChild(button);
+    row.appendChild(button);
     button.addEventListener("click", (event) => {
         
         //display.textContent = operate(numA, String(operator), numB);
@@ -126,6 +139,7 @@ for (ops in operators) {
 
     });
 }
+
 
 const clear = document.createElement("button");
 clear.classList.add("btn");
