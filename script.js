@@ -18,6 +18,7 @@ let numA = "";
 let numB = "";
 let operator;
 let secondNum = false;
+let displayResult = false;
 
 function operate(num1, operator, num2) {
     switch(operator) {
@@ -55,6 +56,10 @@ for (let i = 0; i <= 9; i++) {
     button.textContent = i;
     container.appendChild(button);
     button.addEventListener("click", (event) => {
+        if (displayResult) {
+            display.textContent = "";
+            displayResult = false;
+        }
         if (!secondNum) {
             numA += button.textContent;
             display.textContent += button.textContent;
@@ -62,6 +67,7 @@ for (let i = 0; i <= 9; i++) {
         }
         else {
             numB += button.textContent;
+            //display.textContent = "";
             display.textContent += button.textContent;
             console.log("in else-num")
         }
@@ -89,6 +95,7 @@ for (ops in operators) {
             numB = "";
             operator = "";
             secondNum = false;
+            //displayResult = true;
             console.log(numA);
         }
         else {
@@ -96,6 +103,8 @@ for (ops in operators) {
             if (numA && !numB) {
                 operator = button.textContent;
                 secondNum = true;
+                display.textContent = ""
+                console.log("no second num");
             }
             else if (numA && numB) {
                 let result = operate(parseInt(numA), String(operator), parseInt(numB));
@@ -104,6 +113,9 @@ for (ops in operators) {
                 operator = button.textContent;
                 secondNum = true;
                 display.textContent = numA;
+                console.log("second num");
+                displayResult = true;
+                //display.textContent = ""
             }
         }
         operator = button.textContent;
