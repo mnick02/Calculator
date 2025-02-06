@@ -1,6 +1,4 @@
 function add(num1, num2) {
-    //console.log("in add");
-    //console.log(num1 + num2);
     return num1 + num2;
 }
 
@@ -16,9 +14,10 @@ function divide(num1, num2) {
     return num1 / num2;
 }
 
-let numA;
-let numB;
+let numA = "";
+let numB = "";
 let operator;
+let secondNum = false;
 
 function operate(num1, operator, num2) {
     switch(operator) {
@@ -49,45 +48,26 @@ display.setAttribute("style", "background: lightgray");
 container.appendChild(display);
 
 //declare swictch here
-let tracker = 0;
+//let tracker = 0;
 for (let i = 0; i <= 9; i++) {
     const button = document.createElement("button");
     button.classList.add("btn");
     button.textContent = i;
     container.appendChild(button);
     button.addEventListener("click", (event) => {
-        console.log(button.textContent);
-        display.textContent += button.textContent;
-        //numA += display.textContent;
-        
-        // if (numA === "") {
-        //     display.textContent = "";
-        //     display.textContent += button.textContent;
-        // }
-        
-        if (tracker === 0) {
-            //display.textContent += button.textContent;
-            numA = display.textContent;
-            console.log("in loop 1");
-            tracker = 1;
-        }
-        
-        //tracker = 2;
-        //if switch = 1, set var to display.textContent
-        // if (tracker === 1) {
-        //     display.textContent += button.textContent;
-        //     numA = button.textContent;
-        //     tracker = 2;
-        //     console.log("In loop 1");
-        // }
-        if (tracker === 2) {
-            display.textContent = "";
+        if (!secondNum) {
+            numA += button.textContent;
             display.textContent += button.textContent;
-            numB = display.textContent;
-            tracker = 3;
-            console.log("In loop 2");
-            //display.textContent = operate(numA, String(operator), numB);
+            console.log("in-if num");
         }
+        else {
+            display.textContent = "";
+            numB += button.textContent;
+            display.textContent += button.textContent;
+            console.log("in else-num")
+        }
+        console.log(button.textContent);
+        //display.textContent += button.textContent;
     });
 }
 
@@ -99,22 +79,32 @@ for (ops in operators) {
     button.textContent = operators[ops];
     container.appendChild(button);
     button.addEventListener("click", (event) => {
-        //console.log(this);
-        //display.textContent += button.textContent;
-        //var += button.textContent?
-        //Change to = instead of +=?
-        //switch in here (i.e. if btn pressed swtich = 1)
-        if (tracker === 1) {
-            tracker = 2;
-            console.log("in loop 3");
-        }
-        else if (tracker === 3) {
-            tracker = 0;
-            console.log("in loop 4");
+        
+        //display.textContent = operate(numA, String(operator), numB);
+        
+        if (button.textContent === "=") {
+            console.log("pressed equals");
+            let result = operate(parseInt(numA), String(operator), parseInt(numB));
+            display.textContent = result;
+            numA = result;
+            numB = "";
+            operator = "";
+            secondNum = false;
             console.log(numA);
-            console.log(operator);
-            console.log(numB);
-            display.textContent = operate(numA, String(operator), numB);
+        }
+        else {
+            ///what
+            if (numA && !numB) {
+                operator = button.textContent;
+                secondNum = true;
+            }
+            else if (numA && numB) {
+                let result = operate(parseInt(numA), String(operator), parseInt(numB));
+                numA = result;
+                numB = "";
+                operator = button.textContent;
+                secondNum = true;
+            }
         }
         operator = button.textContent;
         //equal op????
@@ -131,6 +121,7 @@ clear.textContent = "clear";
 container.appendChild(clear);
 clear.addEventListener("click", event => {
     display.textContent = "";
+    //update clear button
 });
 
 
