@@ -61,7 +61,6 @@ for (let i = 0; i <= 9; i++) {
             console.log("in-if num");
         }
         else {
-            display.textContent = "";
             numB += button.textContent;
             display.textContent += button.textContent;
             console.log("in else-num")
@@ -104,6 +103,7 @@ for (ops in operators) {
                 numB = "";
                 operator = button.textContent;
                 secondNum = true;
+                display.textContent = numA;
             }
         }
         operator = button.textContent;
