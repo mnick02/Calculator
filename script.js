@@ -133,6 +133,11 @@ clear.textContent = "clear";
 container.appendChild(clear);
 clear.addEventListener("click", event => {
     display.textContent = "";
+    numA = "";
+    numB = "";
+    operator = null;
+    secondNum = false;
+    displayResult = false;
     //update clear button
 });
 
