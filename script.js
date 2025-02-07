@@ -152,7 +152,7 @@ for (ops in operators) {
 //currentRow = createRow();
 
 const clear = document.createElement("button");
-clear.classList.add("btn");
+clear.classList.add("btn", "clear");
 clear.textContent = "clear";
 container.appendChild(clear);
 currentRow.append(clear);
