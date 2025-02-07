@@ -1,1 +1,3 @@
-# Calculator
+This project aims to test skills in html, css/flexbox, and javascript. By the end of this project I will have demonstrated proficency in all of the aforementioned skills by creating a calculator program.
+
+Having completed the project, something that stood out to me is how important getting the logic right first is. The entire program was completely useless until I got not only the logic behind the calculations, but also how to display them in the correct way.
