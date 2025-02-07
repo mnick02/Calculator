@@ -23,20 +23,16 @@ let displayResult = false;
 function operate(num1, operator, num2) {
     switch(operator) {
         case "+":
-            //console.log("in plus");
             return add(num1, num2);
         case "-":
             return subtract(num1, num2);
-            //break;
         case "*":
             return multiply(num1, num2);
-            //break;
         case "/":
             if (num2 === 0) {
                 return "Can't do that ;)";
             }
             return divide(num1, num2).toFixed(2);
-            //break;
         default:
             console.log("unknown command");
     }
@@ -51,8 +47,6 @@ display.textContent = "0";
 display.setAttribute("style", "background: lightgray");
 container.appendChild(display);
 
-//declare swictch here
-//let tracker = 0;
 function createRow() {
     const row = document.createElement("div");
     row.classList.add("row");
@@ -68,7 +62,6 @@ for (let i = 0; i <= 9; i++) {
     const button = document.createElement("button");
     button.classList.add("btn");
     button.textContent = i;
-    //container.appendChild(button);
     currentRow.appendChild(button);
     button.addEventListener("click", (event) => {
         if(display.textContent.length >= 8) {
@@ -85,12 +78,10 @@ for (let i = 0; i <= 9; i++) {
         }
         else {
             numB += button.textContent;
-            //display.textContent = "";
             display.textContent += button.textContent;
             console.log("in else-num")
         }
         console.log(button.textContent);
-        //display.textContent += button.textContent;
     });
 }
 
@@ -104,17 +95,10 @@ for (ops in operators) {
     if (ops % 2 === 0 && ops !== 0) {
         currentRow = createRow();
     }
-    
     button.classList.add("ops");
     console.log(ops);
     button.textContent = operators[ops];
-    //container.appendChild(button);
-    //currentRow = createRow();
-    //currentRow.appendChild(button);
     button.addEventListener("click", (event) => {
-        
-        //display.textContent = operate(numA, String(operator), numB);
-        
         if (button.textContent === "=") {
             console.log("pressed equals");
             let result = operate(parseInt(numA), String(operator), parseInt(numB));
@@ -128,12 +112,10 @@ for (ops in operators) {
                 numB = "";
                 operator = "";
                 secondNum = false;
-                //displayResult = true;
                 console.log(numA);
             }
         }
         else {
-            ///what
             if (numA && !numB) {
                 operator = button.textContent;
                 secondNum = true;
@@ -146,22 +128,15 @@ for (ops in operators) {
                 numB = "";
                 operator = button.textContent;
                 secondNum = true;
-                display.textContent = numA;
+                display.textContent = numA.toExponential(2);
                 console.log("second num");
                 displayResult = true;
-                //display.textContent = ""
             }
         }
         operator = button.textContent;
-        //equal op????
-        // if (button.textContent === "=") {
-        //     display.textContent = operate(numA, String(operator), numB);
-        // }
-
     });
 }
 
-//currentRow = createRow();
 
 const clear = document.createElement("button");
 clear.classList.add("btn", "clear");
@@ -175,7 +150,6 @@ clear.addEventListener("click", event => {
     operator = null;
     secondNum = false;
     displayResult = false;
-    //update clear button
 });
 
 
