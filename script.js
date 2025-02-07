@@ -35,7 +35,7 @@ function operate(num1, operator, num2) {
             if (num2 === 0) {
                 return "Can't do that ;)";
             }
-            return divide(num1, num2);
+            return divide(num1, num2).toFixed(2);
             //break;
         default:
             console.log("unknown command");
