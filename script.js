@@ -71,6 +71,9 @@ for (let i = 0; i <= 9; i++) {
     //container.appendChild(button);
     currentRow.appendChild(button);
     button.addEventListener("click", (event) => {
+        if(display.textContent.length >= 8) {
+            display.textContent = "";
+        }
         if (displayResult) {
             display.textContent = "";
             displayResult = false;
@@ -115,13 +118,19 @@ for (ops in operators) {
         if (button.textContent === "=") {
             console.log("pressed equals");
             let result = operate(parseInt(numA), String(operator), parseInt(numB));
-            display.textContent = result;
-            numA = result;
-            numB = "";
-            operator = "";
-            secondNum = false;
-            //displayResult = true;
-            console.log(numA);
+            if (result.toString().length >= 8) {
+                display.textContent = result.toExponential(2);
+                console.log("in result loop");
+            }
+            else {
+                display.textContent = result;
+                numA = result;
+                numB = "";
+                operator = "";
+                secondNum = false;
+                //displayResult = true;
+                console.log(numA);
+            }
         }
         else {
             ///what
