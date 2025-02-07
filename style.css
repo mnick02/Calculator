@@ -23,6 +23,10 @@
 }
 
 .btn {
+    font-weight: bold;
+    background-color: lightsteelblue;
+}
 
-
+.ops {
+    background-color: lightsalmon;
 }
