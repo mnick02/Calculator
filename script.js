@@ -94,12 +94,17 @@ const operators = ["+", "-", "*", "/", "="];
 
 for (ops in operators) {
     const button = document.createElement("button");
+    currentRow.appendChild(button);
+    if (ops % 2 === 0 && ops !== 0) {
+        currentRow = createRow();
+    }
+    
     button.classList.add("ops");
-    //console.log(operators[ops]);
+    console.log(ops);
     button.textContent = operators[ops];
     //container.appendChild(button);
-    currentRow = createRow();
-    currentRow.appendChild(button);
+    //currentRow = createRow();
+    //currentRow.appendChild(button);
     button.addEventListener("click", (event) => {
         
         //display.textContent = operate(numA, String(operator), numB);
@@ -144,11 +149,13 @@ for (ops in operators) {
     });
 }
 
+//currentRow = createRow();
 
 const clear = document.createElement("button");
 clear.classList.add("btn");
 clear.textContent = "clear";
 container.appendChild(clear);
+currentRow.append(clear);
 clear.addEventListener("click", event => {
     display.textContent = "";
     numA = "";
