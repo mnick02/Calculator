@@ -35,3 +35,10 @@
 .clear {
     background-color: lightgreen;
 }
+
+.display {
+    display: flex;
+    align-items: center;
+    width: 250px;
+    height: 100px;
+}
